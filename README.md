@@ -109,8 +109,8 @@ Setting up with Heroku
 24. `heroku open` --> launches your app in a web browers
 25. `heroku logs` --> to see what's going on (skip this step if it's all working!)
 
-Time for a Rakefile
----
+  Time for a Rakefile
+  ---
 26. `touch Rakefile` --> create one if you don't already have once
 27. Add this code to it:
 
