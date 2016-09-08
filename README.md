@@ -21,22 +21,25 @@ Get the Gemfile working
 ---
 6. In the Gemfile add the following:
 
-``ruby '2.3.0' #or whatever version of ruby you want to use
+```ruby
+ruby '2.3.0' #or whatever version of ruby you want to use
 gem 'rspec'
 gem 'sinatra'
 gem 'rake'
-``
+```
 
 7. `bundle` --> run bundle to get all the gems
 
 Get the Sinatra and Capybara up and running
+---
 8. `rspec-sinatra init --app MyApp ./app/app.rb` --> where MyApp == name of your app and the path points to the correct folder. Don't worry about overwriting the spec_helper.rb file ... you should also see a `config.ru` file with something like the following:
 
-`` require 'rubygems'
+``ruby
+require 'rubygems'
 require File.join(File.dirname(__FILE__), 'app/app.rb')
 
 run MyApp
-``
+```
 
 9. `rackup` and go to `localhost:9292` in your browser --> check Sinatra is working properly. You may need to use a different port - check the logs to make sure it's correct.
 
@@ -47,19 +50,21 @@ Get the DB up and running
 12. `create database "YourDataBase_development"` --> create a database for your development environment
 13.  Add the following gems to your Gemfile:
 
-``gem 'data-mapper'
+``` ruby
+gem 'data-mapper'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
 gem 'pg'
-``
+```
 
 14. `bundle` --> to get the gems you just specified
 15. `touch data_mapper_setup.rb` --> let's create a file to load up DataMapper
 16. add the following to the file you just created:
 
-```
+``` ruby
 require 'data_mapper'
 require 'dm-postgres-adapter'
+
 # later you'll need to require the files that are using DM to connect to your DB
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/YourDataBase_#{ENV['RACK_ENV']}")
@@ -74,7 +79,7 @@ Don't forget to point at the right DB path you just created in step 11. And add 
 
 18. Add `require 'database_cleaner'` to your spec_helper. And the following code after `Rspec.configure do |config|`:
 
-```
+``` ruby
 config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -109,7 +114,7 @@ Time for a Rakefile
 26. `touch Rakefile` --> create one if you don't already have once
 27. Add this code to it:
 
-```
+``` ruby
 require 'data_mapper'
 require './app/app.rb' # make sure you use the right path to your app
 
