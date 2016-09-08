@@ -9,16 +9,16 @@ This page is intended to provide all the command line instructions you need to g
 * Postgresql
 * Heroku
 
-Setting up the project
----
+  Setting up the project
+  ---
 1. `mkdir <project-name>` --> create a directory for your project
 2. `cd <project-name>` --> switch into that directory
 3. `git init` --> initialize the directory to use git
 4. `gem install bundler` --> skip this step if you already have bundler
 5. `bundle init` --> will create a Gemfile
 
-Get the Gemfile working
----
+  Get the Gemfile working
+  ---
 6. In the Gemfile add the following:
 
   ```ruby
@@ -30,8 +30,8 @@ Get the Gemfile working
 
 7. `bundle` --> run bundle to get all the gems
 
-Get the Sinatra and Capybara up and running
----
+  Get the Sinatra and Capybara up and running
+  ---
 8. `rspec-sinatra init --app MyApp ./app/app.rb` --> where MyApp == name of your app and the path points to the correct folder. Don't worry about overwriting the spec_helper.rb file ... you should also see a `config.ru` file with something like the following:
 
   ```ruby
@@ -43,8 +43,8 @@ Get the Sinatra and Capybara up and running
 
 9. `rackup` and go to `localhost:9292` in your browser --> check Sinatra is working properly. You may need to use a different port - check the logs to make sure it's correct.
 
-Get the DB up and running
----
+  Get the DB up and running
+  ---
 10. `psql` --> launch postgresql from the command line
 11. `create database "YourDataBase_test"` --> create a database for your test environment
 12. `create database "YourDataBase_development"` --> create a database for your development environment
@@ -65,7 +65,7 @@ Get the DB up and running
   require 'data_mapper'
   require 'dm-postgres-adapter'
 
-  # later you'll need to require the files that are using DM to connect to your DB
+  # later you'll need to require the models that are using DM to connect to your DB
 
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/YourDataBase_#{ENV['RACK_ENV']}")
   DataMapper::Logger.new($stdout, :debug)
@@ -73,7 +73,7 @@ Get the DB up and running
   DataMapper.auto_upgrade!
   ```
 
-Don't forget to point at the right DB path you just created in step 11. And add `require_relative 'data_mapper_setup'` to your `app.rb` file.
+  Don't forget to point at the right DB path you just created in step 11. And add `require_relative 'data_mapper_setup'` to your `app.rb` file.
 
 17. Make sure your are correctly set up for different environments. You should see something like `ENV['RACK_ENV'] = 'test'` in your `spec_helper.rb` file. Don't forget to require the relevant files. In your `app.rb` file add `ENV["RACK_ENV"] ||= "development"` --> that makes sure that you run the development environment by default.
 
@@ -96,17 +96,17 @@ Don't forget to point at the right DB path you just created in step 11. And add 
     end
   ```
 
-This will clean out your test DB after each Rspec run ...
+  This will clean out your test DB after each Rspec run ...
 
 19. At this point you should create some simply models and verify that DataMapper is working correctly and storing things in your DB.
 
-Setting up with Heroku
----
+  Setting up with Heroku
+  ---
 20. `heroku create YourApp` --> to create an app on Heroku (if you leave out YourApp it will simply pick a name at random)
 21. `git remote -v` --> to verify that it has added Heroku as a remote
 22. `heroku addons:create heroku-postgresql:hobby-dev` --> to create a Postgresql DB on Heroku
 23. `git push heroku master` --> you can also use `git push heroku your-branch:master` to push a specific branch to Heroku master
-24. `heroku open` --> launches your app in a web browers
+24. `heroku open` --> launches your app in a web browser
 25. `heroku logs` --> to see what's going on (skip this step if it's all working!)
 
   Time for a Rakefile
