@@ -21,12 +21,12 @@ Get the Gemfile working
 ---
 6. In the Gemfile add the following:
 
-```ruby
-ruby '2.3.0' #or whatever version of ruby you want to use
-gem 'rspec'
-gem 'sinatra'
-gem 'rake'
-```
+  ```ruby
+  ruby '2.3.0' #or whatever version of ruby you want to use
+  gem 'rspec'
+  gem 'sinatra'
+  gem 'rake'
+  ```
 
 7. `bundle` --> run bundle to get all the gems
 
