@@ -22,8 +22,8 @@ This page is intended to provide all the command line instructions you need to g
 * Postgresql
 * Heroku
 
-  Setting up the project
-  ---
+Setting up the project
+---
 1. `mkdir <project-name>` --> create a directory for your project
 2. `cd <project-name>` --> switch into that directory
 3. `git init` --> initialize the directory to use git
