@@ -64,7 +64,7 @@ Setting up the project
 13.  Add the following gems to your Gemfile:
 
   ``` ruby
-  gem 'data-mapper'
+  gem 'data_mapper'
   gem 'dm-postgres-adapter'
   gem 'database_cleaner'
   gem 'pg'
