@@ -59,8 +59,8 @@ Setting up the project
   Get the DB up and running
   ---
 10. `psql` --> launch postgresql from the command line
-11. `create database "YourDataBase_test"` --> create a database for your test environment
-12. `create database "YourDataBase_development"` --> create a database for your development environment
+11. `create database "YourDataBase_test";` --> create a database for your test environment
+12. `create database "YourDataBase_development";` --> create a database for your development environment
 13.  Add the following gems to your Gemfile:
 
   ``` ruby
