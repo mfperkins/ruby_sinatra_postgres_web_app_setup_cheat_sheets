@@ -39,6 +39,7 @@ Setting up the project
   gem 'rspec'
   gem 'sinatra'
   gem 'rake'
+  gem 'capybara'
   ```
 
 7. `bundle` --> run bundle to get all the gems
