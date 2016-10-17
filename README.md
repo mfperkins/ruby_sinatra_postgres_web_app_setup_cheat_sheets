@@ -112,7 +112,7 @@ Setting up the project
 
   This will clean out your test DB after each Rspec run ...
 
-19. At this point you should create some simply models and verify that DataMapper is working correctly and storing things in your DB.
+19. At this point you should create some simple models and verify that DataMapper is working correctly and storing things in your DB.
 
   Setting up with Heroku
   ---
